@@ -6,7 +6,7 @@ on:
     branches:
       - main
 jobs:
-  Sync assets with S3:
+  Sync-Asets-With-S3:
     runs-on: ubuntu-latest
     strategy:
       matrix:
