@@ -1,4 +1,4 @@
-name: Infra Control Tower
+name: Infra Common Assets
 #run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 run-name: Running for ${{ github.event.head_commit.message }}
 on: 
