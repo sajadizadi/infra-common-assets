@@ -4,8 +4,7 @@ run-name: Running for ${{ github.event.head_commit.message }}
 on: 
   push:
     branches:
-      - dit1
-      - sit1
+      - master
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
