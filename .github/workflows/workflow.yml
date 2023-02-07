@@ -7,6 +7,8 @@ on:
       - main
 jobs:
   Sync-Asets-With-S3:
+    env:
+      PYTHON_VERSION: 3.10
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,11 +17,11 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python ${{env.PYTHON_VERSION}}
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
-      
+          python-version: ${{env.PYTHON_VERSION}}
+
       - name: Check out this repository code
         uses: actions/checkout@v3
 
