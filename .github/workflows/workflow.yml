@@ -36,6 +36,13 @@ jobs:
           echo "ASSET_BUCKET=$(python -c "from script import param; param('assetBucket')")" >> $GITHUB_OUTPUT
           echo "REGION=$(python -c "from script import param; param('region')")" >> $GITHUB_OUTPUT
       
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ${{ steps.vars.outputs.REGION }}
+          role-to-assume: arn:aws:iam::${{ steps.vars.outputs.ACCOUNT_ID }}:role/${{ steps.vars.outputs.GITHUB_ROLE }}
+          role-session-name: MySessionName
+      
       - name: Upload to S3
         run: |
           aws s3 sync ./artefacts s3://${{ steps.vars.outputs.ASSET_BUCKET }}/artefacts/
