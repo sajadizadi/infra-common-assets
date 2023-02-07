@@ -1,0 +1,6 @@
+#information for the role to be assumed by github
+accountId: 282368325040
+githubRole: github-role
+clusterRole: OrganizationAccountAccessRole
+assetBucket: infra-common-assets
+region: ca-central-1
