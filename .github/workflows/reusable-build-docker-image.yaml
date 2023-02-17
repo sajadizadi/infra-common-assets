@@ -45,6 +45,8 @@ jobs:
         
       - name: Update deployment
         run: |
+          git config --global user.email "workflow@bmo-sandbox.com"
+          git config --global user.name "Workflow"
           echo hello > hello.txt
           ls
           git add ./hello.txt
