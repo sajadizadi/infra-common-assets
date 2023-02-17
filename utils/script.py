@@ -7,3 +7,4 @@ def param(p):
         #load the files as yamls
         config = yaml.safe_load(f_config)
         print(config[p])
+
