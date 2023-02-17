@@ -44,7 +44,8 @@ jobs:
       #     docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
       - name: Get kubernetes scripts
         run: |
-          aws s3 cp s3://infra-common-assets-bmo-lab/artefacts/kubernetes /tmp/kubernetes
+          mkdir /tmp/kubernetes
+          aws s3 sync s3://infra-common-assets-bmo-lab/artefacts/kubernetes /tmp/kubernetes
 
       - name: Update deployment
         run: |
