@@ -71,7 +71,7 @@ jobs:
           cd infra/app
           #image, reponame, branchname
           #IMAGE= "782042535526.dkr.ecr.ca-central-1.amazonaws.com/"
-          python -c "from /tmp/kubernetes/script import fixKubernetesYamls; fixKubernetesYamls($REGISTRY/$REPOSITORY:$IMAGE_TAG, $REPOSITORY, $BRANCH)")
+          python -c "from /tmp/kubernetes/script import fixKubernetesYamls; fixKubernetesYamls($REGISTRY/$REPOSITORY:$IMAGE_TAG, $REPOSITORY, $BRANCH)"
           # echo hello > hello.txt
           # ls
           # git add ./hello.txt
