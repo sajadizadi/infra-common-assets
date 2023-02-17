@@ -69,11 +69,12 @@ jobs:
           git config --global user.email "workflow@bmo-sandbox.com"
           git config --global user.name "Workflow"
           cd infra/app
-          #echo $PYTHONPATH
+          echo "echoing registry"
+          echo $REGISTRY
           #export PYTHONPATH=/tmp/kubernetes/
-          python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')"
+          python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')" > deployment.yaml
           # echo hello > hello.txt
           # ls
-          # git add ./hello.txt
-          # git commit -m "workflow committing this"
-          # git push
+          git add ./deployment.yaml
+          git commit -m "workflow committing this"
+          git push
