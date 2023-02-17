@@ -71,7 +71,7 @@ jobs:
           cd infra/app
           #echo $PYTHONPATH
           #export PYTHONPATH=/tmp/kubernetes/
-          python -c "from _tmp.kubernetes script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')"
+          python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')"
           # echo hello > hello.txt
           # ls
           # git add ./hello.txt
