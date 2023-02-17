@@ -19,7 +19,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: ca-central-1
-          role-to-assume: arn:aws:iam::782042535526:role/girhub-role
+          role-to-assume: arn:aws:iam::782042535526:role/github-role
           role-session-name: MySessionName
       
       - name: Login to Amazon ECR to Make Image
