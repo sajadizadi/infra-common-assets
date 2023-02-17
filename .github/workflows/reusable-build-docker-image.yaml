@@ -69,7 +69,6 @@ jobs:
           git config --global user.email "workflow@bmo-sandbox.com"
           git config --global user.name "Workflow"
           cd infra/app
-          ls /tmp/kubernetes/
           #echo $PYTHONPATH
           #export PYTHONPATH=/tmp/kubernetes/
           python -c "from _tmp/kubernetes script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')"
