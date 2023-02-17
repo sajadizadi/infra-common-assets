@@ -3,7 +3,7 @@ import sys
 import json
 
 def fixKubernetesYamls(image, repoName, branchName):
-    with open("infra/app/deployment.yaml") as f_deployment:
+    with open("deployment.yaml") as f_deployment:
         deployment = yaml.safe_load(f_deployment)
         print(deployment["metadata"])
         deployment["metadata"] = {
