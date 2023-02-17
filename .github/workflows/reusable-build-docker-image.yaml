@@ -72,7 +72,9 @@ jobs:
           #image, reponame, branchname
           #IMAGE= "782042535526.dkr.ecr.ca-central-1.amazonaws.com/"
           ls /tmp/kubernetes/
-          python -c "from '/tmp/kubernetes/script.py' import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')"
+          echo $PYTHONPATH
+          export PYTHONPATH=/tmp/kubernetes/
+          python -c "from script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')"
           # echo hello > hello.txt
           # ls
           # git add ./hello.txt
