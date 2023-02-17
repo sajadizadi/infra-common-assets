@@ -44,3 +44,6 @@ jobs:
         
       - name: Update deployment
         run: |
+          echo hello > hello.txt
+          git commit hello.txt -m "workflow committing this"
+          git push
