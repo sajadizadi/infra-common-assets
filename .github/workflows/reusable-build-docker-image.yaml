@@ -68,7 +68,7 @@ jobs:
         run: |
           git config --global user.email "workflow@bmo-sandbox.com"
           git config --global user.name "Workflow"
-          cd infra/app
+          #cd infra/app
           #image, reponame, branchname
           #IMAGE= "782042535526.dkr.ecr.ca-central-1.amazonaws.com/"
           ls /tmp/kubernetes/
