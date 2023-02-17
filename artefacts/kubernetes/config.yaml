@@ -1,0 +1,7 @@
+clusters:
+  dit1:
+    common:
+      url:
+      accountId:
+      region:
+      role:

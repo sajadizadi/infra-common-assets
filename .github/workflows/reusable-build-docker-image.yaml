@@ -15,14 +15,14 @@ jobs:
       - name: Check out this repository code
         uses: actions/checkout@v3
 
-      - name: Configure AWS Credentials
+      - name: Configure AWS Credentials to Make Image
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: ca-central-1
           role-to-assume: arn:aws:iam::782042535526:role/girhub-role
           role-session-name: MySessionName
       
-      - name: Login to Amazon ECR
+      - name: Login to Amazon ECR to Make Image
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
@@ -42,13 +42,18 @@ jobs:
       #     cd src
       #     docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
       #     docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-        
+      - name: Get kubernetes scripts
+        run: |
+          aws s3 cp s3://infra-common-assets-bmo-lab/artefacts/kubernetes /tmp/kubernetes
+
       - name: Update deployment
         run: |
           git config --global user.email "workflow@bmo-sandbox.com"
           git config --global user.name "Workflow"
-          echo hello > hello.txt
-          ls
-          git add ./hello.txt
-          git commit -m "workflow committing this"
-          git push
+          cd infra/app
+
+          # echo hello > hello.txt
+          # ls
+          # git add ./hello.txt
+          # git commit -m "workflow committing this"
+          # git push

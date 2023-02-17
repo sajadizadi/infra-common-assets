@@ -1,6 +1,6 @@
 #information for the role to be assumed by github
-accountId: 282368325040
+accountId: 782042535526
 githubRole: github-role
 clusterRole: OrganizationAccountAccessRole
-assetBucket: infra-common-assets
+assetBucket: infra-common-assets-bmo-lab
 region: ca-central-1
