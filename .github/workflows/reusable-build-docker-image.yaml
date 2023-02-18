@@ -80,7 +80,9 @@ jobs:
           echo "echoing registry"
           echo $REGISTRY
           #export PYTHONPATH=/tmp/kubernetes/
-          python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')" > deployment.yaml
+          echo "echoing ls"
+          echo ls
+          python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')"
           # echo hello > hello.txt
           # ls
           #git add ./deployment.yaml
