@@ -82,7 +82,7 @@ jobs:
           #export PYTHONPATH=/tmp/kubernetes/
           echo "echoing ls"
           ls
-          python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')" > deployment2.yaml
+          python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')" > deployment.yaml
           echo "echoing ls again"
           ls
           # echo hello > hello.txt
