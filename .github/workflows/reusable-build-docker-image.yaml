@@ -83,10 +83,14 @@ jobs:
           echo "echoing ls"
           ls
           python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')" > deployment.tmp.yaml
-          rm deployment.yaml
-          mv deployment.tmp.yaml deplment.yaml
-          echo "echoing ls again"
+
+          echo "ls after tmp"
           ls
+
+          mv deployment.tmp.yaml deployment.yaml
+          echo "echoing ls again"
+          ls 
+          cat deployment.yaml
           # echo hello > hello.txt
           # ls
           git add ./deployment.yaml
