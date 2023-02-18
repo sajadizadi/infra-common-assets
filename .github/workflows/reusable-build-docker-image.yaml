@@ -81,8 +81,10 @@ jobs:
           echo $REGISTRY
           #export PYTHONPATH=/tmp/kubernetes/
           echo "echoing ls"
-          echo ls
-          python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')"
+          ls
+          python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')" > deployment2.yaml
+          echo "echoing ls again"
+          ls
           # echo hello > hello.txt
           # ls
           #git add ./deployment.yaml
