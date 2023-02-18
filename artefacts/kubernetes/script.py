@@ -5,7 +5,6 @@ import json
 def fixKubernetesYamls(image, repoName, branchName):
     with open("deployment.yaml") as f_deployment:
         deployment = yaml.safe_load(f_deployment)
-        print(deployment["metadata"])
         deployment["metadata"] = {
             "name": repoName,
             "namespace": branchName,

@@ -5,6 +5,14 @@ on:
 
 jobs:
   Make-Image:
+    #add this to avoid loops
+    #(skip if the committer is this job (this job pushes after kube artefact is updated))  
+    #https://stackoverflow.com/questions/73476268/how-to-restrict-your-workflow-to-be-only-run-by-members-of-your-organisation-gi
+    #if: contains('["kingthorin","lpoulter"]', github.actor)
+
+    #does this work? ignore if the commit was on infra folder (to avoid loop)
+    #paths-ignore:
+    #  - 'infra/**'
     env:
       PYTHON_VERSION: "3.10"
     runs-on: ubuntu-latest
@@ -66,7 +74,7 @@ jobs:
           IMAGE_TAG: ${{ steps.vars.outputs.sha_short }}
           BRANCH: ${{ github.ref_name }}
         run: |
-          git config --global user.email "workflow@bmo-sandbox.com"
+          git config --global user.email "workflow@bmo-lab.com"
           git config --global user.name "Workflow"
           cd infra/app
           echo "echoing registry"
@@ -75,6 +83,6 @@ jobs:
           python -c "from _tmp.kubernetes.script import fixKubernetesYamls; fixKubernetesYamls('$REGISTRY/$REPOSITORY:$IMAGE_TAG', '$REPOSITORY', '$BRANCH')" > deployment.yaml
           # echo hello > hello.txt
           # ls
-          git add ./deployment.yaml
-          git commit -m "workflow committing this"
-          git push
+          #git add ./deployment.yaml
+          #git commit -m "workflow committing this"
+          #git push
