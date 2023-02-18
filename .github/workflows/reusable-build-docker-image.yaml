@@ -89,6 +89,6 @@ jobs:
           ls
           # echo hello > hello.txt
           # ls
-          #git add ./deployment.yaml
-          #git commit -m "workflow committing this"
-          #git push
+          git add ./deployment.yaml
+          git commit -m "workflow committing this"
+          git push
