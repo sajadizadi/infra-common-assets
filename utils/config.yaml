@@ -2,5 +2,5 @@
 accountId: 782042535526
 githubRole: github-role
 clusterRole: OrganizationAccountAccessRole
-assetBucket: infra-common-assets-bmo-lab
+assetBucket: infra-common-assets-sajilab
 region: ca-central-1
