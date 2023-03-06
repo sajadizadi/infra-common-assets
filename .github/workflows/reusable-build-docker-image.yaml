@@ -47,14 +47,15 @@ jobs:
           DOCKER_BUILDKIT: 1
         run: |
           aws ecr create-repository --repository-name $REPOSITORY || true
+          ##### I should add a policy to allow organization to download this repo (the eks cluters that use this image are in a different account)
           cd src
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-          
+
       - name: Get kubernetes scripts
         run: |
           mkdir -p infra/app/_tmp/kubernetes/
-          aws s3 sync s3://infra-common-assets-bmo-lab/artefacts/kubernetes infra/app/_tmp/kubernetes/
+          aws s3 sync s3://infra-common-assets-sajilab/artefacts/kubernetes infra/app/_tmp/kubernetes/
 
 
       - name: Set up Python ${{ env.PYTHON_VERSION }}
@@ -75,7 +76,7 @@ jobs:
           IMAGE_TAG: ${{ steps.vars.outputs.sha_short }}
           BRANCH: ${{ github.ref_name }}
         run: |
-          git config --global user.email "workflow@bmo-lab.com"
+          git config --global user.email "workflow@sajilab.com"
           git config --global user.name "Workflow"
           cd infra/app
           echo "echoing registry"
