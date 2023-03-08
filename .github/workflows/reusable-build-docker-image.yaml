@@ -59,7 +59,7 @@ jobs:
           #aws s3 sync s3://infra-common-assets-sajilab/artefacts/kubernetes infra/app/_tmp/kubernetes/
 
           #or copy them from repo directly?
-          ls artefacts/kubernetes
+          ls .
           cp artefacts/kubernetes/* infra/app/_tmp/kubernetes/
 
 
