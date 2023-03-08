@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+    paths:
+    - 'artefacts/**'
 jobs:
   Sync-Asets-With-S3:
     env:

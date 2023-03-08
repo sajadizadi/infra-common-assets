@@ -54,8 +54,11 @@ jobs:
 
       - name: Get kubernetes scripts
         run: |
+          #should I take these files from s3?
           #mkdir -p infra/app/_tmp/kubernetes/
           #aws s3 sync s3://infra-common-assets-sajilab/artefacts/kubernetes infra/app/_tmp/kubernetes/
+
+          #or copy them from repo directly?
           cp artefacts/kubernetes infra/app/_tmp/kubernetes/
 
 
