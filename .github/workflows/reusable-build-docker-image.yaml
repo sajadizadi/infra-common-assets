@@ -59,7 +59,8 @@ jobs:
           #aws s3 sync s3://infra-common-assets-sajilab/artefacts/kubernetes infra/app/_tmp/kubernetes/
 
           #or copy them from repo directly?
-          cp artefacts/kubernetes infra/app/_tmp/kubernetes/
+          ls artefacts/kubernetes
+          cp artefacts/kubernetes/* infra/app/_tmp/kubernetes/
 
 
       - name: Set up Python ${{ env.PYTHON_VERSION }}
